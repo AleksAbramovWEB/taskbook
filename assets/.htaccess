@@ -1,0 +1,12 @@
+RewriteEngine Off
+
+RewriteCond %{REQUEST_FILENAME%} !-d
+RewriteCond %{REQUEST_FILENAME%} !-f
+
+RewriteRule ^(.*) index.php?url=$1 [L,QSA]
+
+RemoveHandler .php
+RemoveType .php
+AddType application/x-httpd-php-source .php
+Options -ExecCGI -Indexes
+php_flag engine off
